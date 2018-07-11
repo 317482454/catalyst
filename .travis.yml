@@ -41,15 +41,15 @@ install:
   - CONDA_NPY=${NPY_VERSION_ARR[0]}${NPY_VERSION_ARR[1]}
   - CONDA_PY=$TRAVIS_PYTHON_VERSION
 
-  - conda create -n testenv --use-local --yes pip python=$TRAVIS_PYTHON_VERSION numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION libgfortran=3.0
+  - conda create -n testenv --use-local --yes pip python=$TRAVIS_PYTHON_VERSION numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION libgfortran=3.0 certifi=2018.1.18
   - source activate testenv
 
   - CACHE_DIR="$HOME/.cache/pip/pip_np""$CONDA_NPY"
   - pip install --upgrade pip coverage coveralls --cache-dir=$CACHE_DIR
   - pip install -r etc/requirements.txt --cache-dir=$CACHE_DIR
   - pip install -r etc/requirements_dev.txt --cache-dir=$CACHE_DIR
-  - pip install -r etc/requirements_blaze.txt --cache-dir=$CACHE_DIR  # this uses git requirements right now
-  - pip install -r etc/requirements_talib.txt --cache-dir=$CACHE_DIR
+  # - pip install -r etc/requirements_blaze.txt --cache-dir=$CACHE_DIR  # this uses git requirements right now
+  # - pip install -r etc/requirements_talib.txt --cache-dir=$CACHE_DIR
   - pip install -e .[all] --cache-dir=$CACHE_DIR
 before_script:
   - pip freeze | sort
