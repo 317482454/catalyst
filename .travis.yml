@@ -3,8 +3,8 @@ sudo: false
 fast_finish: true
 python:
   - 2.7
-  - 3.4
   - 3.5
+  - 3.6
 env:
   global:
     # 1. Generated a token for travis at https://anaconda.org/quantopian/settings/access with scope api:write.
@@ -19,7 +19,7 @@ env:
     - secure: "W2tTHoZYLuEjoIMI/K3adv7QW7yx4iVOIkVOn73jUkv3IlyZZ+BraL0hBw5Dh/iBA9PnO1qOKeRFLDDfDza/1S+2QxZMBmJ8HAkcZehbtTPdCgn/+CYSlauUlJ2izxgnXFw49qJDllQWtwsK2PEuvHrir6wbdElkXKvIJoD7jQ4="
     - CONDA_ROOT_PYTHON_VERSION: "2.7"
   matrix:
-    - NUMPY_VERSION=1.11.1 SCIPY_VERSION=0.17.1
+    - NUMPY_VERSION=1.14 SCIPY_VERSION=1.0.0
 cache:
   directories:
     - $HOME/.cache/.pip/
@@ -79,4 +79,4 @@ after_success:
 
 branches:
   only:
-    - master
+    - travis
