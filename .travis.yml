@@ -10,7 +10,9 @@ matrix:
       env: NUMPY_VERSION=1.14 SCIPY_VERSION=1.0.0 
 
 cache: 
-  pip: true       # caches $HOME/.cache/pip
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/miniconda
   timeout: 1000   # defaults to 3 min, set in seconds
 
 before_install:
