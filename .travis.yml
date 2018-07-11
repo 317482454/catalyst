@@ -29,7 +29,7 @@ install:
   - CONDA_NPY=${NPY_VERSION_ARR[0]}${NPY_VERSION_ARR[1]}
   - CONDA_PY=$TRAVIS_PYTHON_VERSION
 
-  - conda create --yes -n testenv --use-local pip python=$TRAVIS_PYTHON_VERSION numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION libgfortran=3.0 ta-lib=$TALIB_VERSION -f etc/python${TRAVIS_PYTHON_VERSION}-environment.yml
+  - conda env create --yes -n testenv --use-local pip python=$TRAVIS_PYTHON_VERSION numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION libgfortran=3.0 ta-lib=$TALIB_VERSION -f etc/python${TRAVIS_PYTHON_VERSION}-environment.yml
   - source activate testenv
 
   - CACHE_DIR="$HOME/.cache/.pip/pip_np""$CONDA_NPY"
